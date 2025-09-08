@@ -1,0 +1,75 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+
+// Declaración de la función antes de main
+void imprimirEspiral(int matriz[][10], int N, int M);
+
+int main()
+{
+    //definir m y n, despues pedir datos al usuario
+int N, M;
+printf("Ingresa numero de filas (N): \n");
+scanf("%d", &N);
+printf("Ingresa numero de columnas (M): \n");
+scanf("%d", &M);
+
+//maximo tamano de la matriz 
+int matriz[10][10];
+
+//pedir los elementos al usuario
+printf("ingresa los elementos de la matriz: \n");
+for(int i=0; i<N; i++){
+    for(int j=0; j<M; j++){
+        scanf("%d", &matriz[i][j]);
+    }
+}
+
+
+//imprimir matriz espiral
+printf("Matriz en espiral: \n");
+imprimirEspiral(matriz, N, M);
+
+    return 0;
+}
+
+//espiral 
+void imprimirEspiral(int matriz[][10], int N, int M){
+    int arriba=0,  abajo= N-1; 
+    int izquierda = 0,  derecha= M-1;
+    
+   // Recorre de izquierda a derecha
+        for (int i = izquierda; i <= derecha; i++)
+            printf("%d ", matriz[arriba][i]);
+        arriba++;
+
+        // Recorre de arriba a abajo
+        for (int i = arriba; i <= abajo; i++)
+            printf("%d ", matriz[i][derecha]);
+        derecha--;
+
+        // Recorre de derecha a izquierda
+        if (arriba <= abajo) {
+            for (int i = derecha; i >= izquierda; i--)
+                printf("%d ", matriz[abajo][i]);
+                abajo--;
+        }
+
+        // Recorre de abajo a arriba
+        if (izquierda <= derecha) {
+            for (int i = abajo; i >= arriba; i--)
+                printf("%d ", matriz[i][izquierda]);
+            izquierda++;
+        }
+    }
+
+
+
+
