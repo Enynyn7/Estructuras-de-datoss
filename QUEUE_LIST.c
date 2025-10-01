@@ -100,9 +100,8 @@ int main() {
         printf("\n--- Menú de Cola Dinámica ---\n");
         printf("1. Enqueue (Agregar)\n");
         printf("2. Dequeue (Eliminar)\n");
-        printf("3. Peek (Ver primero)\n");
-        printf("4. Display (Mostrar cola)\n");
-        printf("5. Salir\n");
+        printf("3. Display (Mostrar cola)\n");
+        printf("4. Salir\n");
         printf("Seleccione una opción: ");
         scanf("%d", &opcion);
         getchar(); // Limpiar buffer
@@ -118,19 +117,16 @@ int main() {
                 dequeue(q);
                 break;
             case 3:
-                peek(q);
-                break;
-            case 4:
                 display(q);
                 break;
-            case 5:
+            case 4:
                 printf("Liberando memoria y saliendo...\n");
                 freeQueue(q);
                 break;
             default:
                 printf("Opción inválida.\n");
         }
-    } while (opcion != 5);
+    } while (opcion != 4);
 
     return 0;
 }
